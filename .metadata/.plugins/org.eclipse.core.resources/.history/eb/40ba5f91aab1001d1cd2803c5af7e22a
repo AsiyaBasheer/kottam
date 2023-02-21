@@ -1,0 +1,5 @@
+package com.asiya.kootam.repository;
+
+public class LoginUserRepository {
+
+}

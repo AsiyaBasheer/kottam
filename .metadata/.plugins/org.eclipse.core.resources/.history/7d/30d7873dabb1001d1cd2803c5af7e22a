@@ -1,0 +1,5 @@
+package com.asiya.kootam.service;
+
+public class LoginUserService {
+
+}
