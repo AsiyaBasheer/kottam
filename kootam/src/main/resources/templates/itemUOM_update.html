@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ItemUOM Management </title>
+</head>
+<body>
+	<div>
+		<h1>ItemUOM Management</h1>
+		<h2>Update ItemUOM Details</h2>
+		<form action="#" th:action="@{/itemUOM/saveItemUOM}" th:object="${itemUOM}" method="POST">
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{itUOMId}" />
+			
+			<table>
+				<tr>
+					<td>Item UOM</td>
+					<td><input type="text" th:field="*{itUOMName}" placeholder="ItemUOM Name"></td>
+				</tr>
+				<tr><td></td><td><button type="submit">Update ItemUOM</button></td></tr>
+			</table>
+		</form>
+		
+		
+		
+		<br><br><br><br>
+		<a th:href = "@{/itemUOM}"> Back to ItemUOM List</a>
+		
+		
+	</div>
+</body>
+</html>

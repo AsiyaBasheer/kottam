@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>SaleItem Management </title>
+</head>
+<body>
+	<div>
+		<h1>SaleItem Management</h1>
+		
+		<h2>Update SaleItem Details</h2>
+		
+		<form action="#" th:action="@{/saleItem/saveSaleItem}" th:object="${saleItem}" method="POST">
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{siId}" />
+			
+			
+			<table>
+				<tr><td>Sale Item</td><td><input type="text" th:field="*{item.itId}" placeholder="Stock Item">
+	</td></tr>
+			<tr><td>Quantity</td><td><input type="number" th:field="*{siQty}" placeholder="SaleItem Quantity">
+			</td></tr>
+			<tr><td></td><td><button type="submit"> Update SaleItem</button></td></tr>
+			</table>
+			
+			
+			
+			<input type="hidden" th:name="sale" th:value="${sale.sId}">
+			
+		</form>
+		
+		
+		<br><br><br><br>
+		<a th:href = "@{/saleItem/{id}(id=${sale.sId})}"> Back to SaleItem List</a>
+	</div>
+</body>
+</html>

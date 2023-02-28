@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Vendor Management</title>
+</head>
+<body>
+<div>
+		<h1>Vendor Management</h1>
+		
+		<h2>Add Vendor Details</h2>
+
+		<form action="#" th:action="@{/vendor/saveVendor}" th:object="${vendor}" method="POST">
+		
+		<table>
+			<tr>
+			<td>Name</td><td><input type="text" th:field="*{vName}" placeholder="Vendor Name">
+			</td>
+			</tr>
+			
+			<tr><td>Phone</td><td><input type="text" th:field="*{vPhone}" placeholder="Vendor Phone">
+			</td></tr>
+			<tr><td>DateOfJoin</td><td><input type="text" th:field="*{vDateOfJoin}" placeholder="Date of Join  in yyyy-mm-dd">
+			</td></tr>
+			<tr><td><h3>Address</h3></td><td></td></tr>
+			
+			<tr><td>HouseName</td><td><input type="text" th:field="*{address.addrHouseName}" placeholder="HouseName">
+			
+			</td></tr>
+			<tr><td>Street</td><td><input type="text" th:field="*{address.addrStreet}" placeholder="Street">
+			
+			</td></tr>
+			<tr><td>PO</td><td><input type="text" th:field="*{address.addPO}" placeholder="PO">
+			
+			</td></tr>
+			<tr><td>District</td><td><input type="text" th:field="*{address.addrDistrict}" placeholder="District">
+			
+			</td></tr>
+			<tr><td>State</td><td><input type="text" th:field="*{address.addrState}" placeholder="State">
+			
+			</td></tr>
+			<tr><td>Country</td><td><input type="text" th:field="*{address.addrCountry}" placeholder="Country">
+			
+			</td></tr>
+			<tr><td>PinCode</td><td><input type="text" th:field="*{address.addrPincode}" placeholder="Pincode">
+			
+			</td></tr>
+			<tr><td></td><td><button type="submit"> Save Vendor</button></td></tr>
+			
+			
+			</table>
+			
+			
+		</form>
+		
+		
+		<br><br><br><br>
+		<a th:href = "@{/vendor}"> Back to Vendor List</a>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Stock Management </title>
+</head>
+<body>
+	<div>
+		<h1>Stock Management</h1>
+		
+		<h2>Update Stock Details</h2>
+		
+		<form action="#" th:action="@{/stock/saveStockUpdate}" th:object="${stock}" method="POST">
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{stId}" />
+			<!--  stock Date:<input type="datetime-local" th:field="*{stDate}" placeholder="stock Date">-->
+	
+			<input type="hidden"  th:field="*{vendor}" >
+			<table>
+				<tr><td>StockDate</td><td><input type="text" th:field="*{stDate}"
+				placeholder="stock Date in yyyy-mm-dd"> <br></td></tr>
+				
+				<tr><td>Stock Amount Settled</td><td><input type="checkbox"
+				th:field="*{stAmountSettled}" placeholder="stock Amount Settled"></td></tr>
+				<tr><td></td><td><button type="submit">Update Stock</button>
+			</td></tr>
+			</table>
+		
+			
+		</form>
+		
+		
+		<br><br><br><br>
+		<a th:href = "@{/stock}"> Back to stock List</a>
+		
+	</div>
+</body>
+</html>

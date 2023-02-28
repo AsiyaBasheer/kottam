@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sale Management</title>
+
+</head>
+<body>
+	<div>
+		<h1>Sale Management</h1>
+
+		<h2>Add Sale Details</h2>
+
+		<form action="#" th:action="@{/sale/saveSale}" th:object="${sale}"
+			method="POST">
+			<!-- Sale Date:<input type="datetime-local" th:field="*{stDate}" placeholder="Sale Date">
+	 -->
+			<table>
+				<tr>
+					<td>Sale Date</td>
+					<td><input type="text" th:field="*{sDate}"
+						placeholder="Sale Date in  yyyy-mm-dd">
+				<tr>
+					<td>Customer</td>
+					<td><select th:field="*{customer}">
+							<option th:each="customer: ${customers}"
+								th:value="${customer.custId}"
+								th:text="${customer.custName}+':'+${customer.custPhone}" />
+					</select></td>
+				</tr>
+				<tr>
+					<td>Sale Amount Settled</td>
+					<td><input type="checkbox" th:field="*{sAmountSettled}"
+						placeholder="Sale Amount Settled"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button type="submit">Save Sale</button></td>
+				</tr>
+				</td>
+				</tr>
+			</table>
+
+
+
+		</form>
+
+
+		<br>
+		<br>
+		<br>
+		<br> <a th:href="@{/sale}"> Back to Sale List</a>
+	</div>
+</body>
+</html>

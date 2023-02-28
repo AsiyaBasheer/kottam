@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Item Management </title>
+</head>
+<body>
+	<div>
+		<h1>Item Management</h1>
+		<h2>Update Item Details</h2>
+		<form action="#" th:action="@{/item/saveItem}" th:object="${item}" method="POST">
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{itId}" />
+			<table>
+			<tr><td>ItemName</td><td><input type="text" th:field="*{itName}" placeholder="Item Name"></td></tr>
+			<tr><td>ItemUOM</td><td>
+			<input type="text" th:field="*{itUOM}" placeholder="Item UOM">
+			
+			</td></tr>
+			<tr><td>ItemCategory</td><td>
+			<input type="text" th:field="*{itemCategory}" placeholder="Item Category">
+			
+			</td></tr>
+			<tr><td>ItemPrice</td><td><input type="number" th:field="*{itPrice}" placeholder="Item Price">
+			</td></tr>
+			<tr><td></td><td><button type="submit"> Update Item</button></td></tr>
+			</table>			
+			
+		</form>
+		
+		
+		<br><br><br><br>
+		<a th:href = "@{/item}"> Back to Item List</a>
+		
+	</div>
+</body>
+</html>

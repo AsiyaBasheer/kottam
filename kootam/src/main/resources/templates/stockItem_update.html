@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>StockItem Management </title>
+</head>
+<body>
+	<div>
+		<h1>StockItem Management</h1>
+		
+		<h2>Update StockItem Details</h2>
+		
+		<form action="#" th:action="@{/stockItem/saveStockItem}" th:object="${stockItem}" method="POST">
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{stiId}" />
+			
+			<table>
+				<tr><td>Stock Item</td><td><input type="text" th:field="*{item.itId}" placeholder="Stock Item">
+			
+			</td></tr>
+				<tr><td>Quantity</td><td><input type="number" th:field="*{stiQty}" placeholder="StockItem Quantity">
+			</td></tr>
+				<tr><td>StockItem Price</td><td><input type="number" th:field="*{stiVPrice}" placeholder="StockItem Price">
+			</td></tr>
+				<tr><td></td><td><button type="submit"> Save StockItem</button></td></tr>
+			</table>
+			<input type="hidden" th:field="*{stock}" th:value="${stock.stId}">
+	
+		</form>
+		
+		
+		<br><br><br><br>
+		<a th:href = "@{/stockItem/{id}(id=${stock.stId})}"> Back to StockItem List</a>
+		
+	</div>
+</body>
+</html>

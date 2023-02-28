@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>::Welcome  ::</title>
+</head>
+<body>
+<div>
+		<h1>Welcome <span th:text ="${loginUser.luName}"></span></h1>
+
+		<table>
+			<tr>
+				
+				<th> 
+				<a th:href="@{/settings/{id}(id=${loginUser.luId})}" >Settings</a>
+				</th>
+
+			</tr>
+			<tr />
+			<tr>
+
+				<th><a th:href="@{/customerlistInfo}">Customer Info</a></th>
+
+			</tr>
+			
+			<tr>
+				<th><a th:href="@{/vendorlistInfo}">Vendor Info </a></th>
+			</tr>
+			
+			<tr>
+				<th><a th:href="@{/loginUserlistInfo}">Users Info </a></th>
+			</tr>
+			<tr>
+				<th><a th:href="@{/salelist}">Sales Info</a></th>
+
+			</tr>
+			<tr>
+				<th><a th:href="@{/stocklist}">Stock Info</a></th>
+			</tr>
+			<tr>
+				<th><a th:href="@{/report}">Reports</a></th>
+			</tr>
+			
+			<tr>
+				<th><a th:href="@{/inventory}">Inventory</a></th>
+			</tr>
+			
+			<tr>
+				<th><a th:href="@{/item}">Item</a></th>
+			</tr>
+			
+			<tr>
+				<th><a th:href="@{/itemCategory}">Item Category</a></th>
+			</tr>
+			
+			<tr>
+				<th><a th:href="@{/itemUOM}">Item UOM</a></th>
+			</tr>
+			
+			<tr>
+				<th><a th:href="@{/logOut}">LogOut</a></th>
+			</tr>
+
+
+		</table>
+
+	</div>
+
+</body>
+</html>

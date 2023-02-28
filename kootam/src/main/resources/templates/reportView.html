@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>::ReportView::</title>
+</head>
+<body>
+
+	<div>
+	<h1>Customer ReportView</h1>
+	<form th:action="@{/customerCreatedAtDateReport}" method="post" >
+        <div >
+          <input type="text" th:name="date" placeholder="yyyy-mm-dd">
+
+       
+          <input type="submit"  value="generate report">
+
+        </div>
+
+      </form>
+	</div>
+	
+	
+	<div>
+	<h1>Vendor ReportView</h1>
+	<form th:action="@{/vendorCreatedAtDateReport}" method="post" >
+        <div >
+          <input type="text" th:name="date" placeholder="yyyy-mm-dd">
+
+       
+          <input type="submit"  value="generate report">
+
+        </div>
+
+      </form>
+	</div>
+	
+	<div>
+	<h1>Stock ReportView</h1>
+	<form th:action="@{/stockCreatedAtDateReport}" method="post" >
+        <div >
+          <input type="text" th:name="date" placeholder="yyyy-mm-dd">
+
+       
+          <input type="submit"  value="generate report">
+
+        </div>
+
+      </form>
+	</div>
+	<div>
+	<h1>Sales ReportView</h1>
+	<form th:action="@{/saleCreatedAtDateReport}" method="post" >
+        <div >
+          <input type="text" th:name="date" placeholder="yyyy-mm-dd">
+
+       
+          <input type="submit"  value="generate report">
+
+        </div>
+
+      </form>
+	</div>
+	<br><br><br><br>
+	<a th:href = "@{/kootam/{id}(id=${session.luId})}"> Back to Home </a>
+</body>
+</html>

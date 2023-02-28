@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Item Management</title>
+
+</head>
+<body>
+	<div>
+		<h1>Item Management</h1>
+		<h2>Add Item Details</h2>
+		<br><br><br><br>
+		
+		<form action="#" th:action="@{/item/saveItem}" th:object="${item}" method="POST">
+			<table>
+			<tr><td>ItemName</td><td><input type="text" th:field="*{itName}" placeholder="Item Name"></td></tr>
+			<tr><td>ItemUOM</td><td>
+			<select th:field="*{itUOM}">
+			<option th:each="itemUOM: ${itemUOMs}" th:value="${itemUOM.itUOMId}" th:text="${itemUOM.itUOMName}"/>
+			</select>
+			</td></tr>
+			<tr><td>ItemCategory</td><td><select th:field="*{itemCategory}">
+			<option th:each="itemCategory: ${itemCategories}" th:value="${itemCategory.itcatId}" th:text="${itemCategory.itcatName}"/>
+			</select></td></tr>
+			<tr><td>ItemPrice</td><td><input type="number" th:field="*{itPrice}" placeholder="Item Price">
+			</td></tr>
+			<tr><td></td><td><button type="submit"> Save Item</button></td></tr>
+			</table>			
+			
+		</form>
+		
+		
+		<br><br><br><br>
+		<a th:href = "@{/item}"> Back to Item List</a>
+	</div>
+</body>
+</html>

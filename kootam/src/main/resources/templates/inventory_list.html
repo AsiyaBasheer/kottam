@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>::Inventory List ::</title>
+</head>
+<body>
+
+	<div >
+		<h1>Inventory</h1>
+		
+		<table border="1" >
+			<thead>
+				<tr>
+					<th>Item ID</th>
+					<th>Item Name</th>
+					<th>Item UOM</th>
+					<th>Vendor ID</th>
+					<th>Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="inv : ${listInventory}">
+					<td th:text="${inv.item.itId}"></td>
+					<td th:text="${inv.item.itName}"></td>
+					<td th:text="${inv.item.itUOM.itUOMName}"></td>
+					<td th:text="${inv.vendor.vId}"></td>
+					<td th:text="${inv.invUnit}"></td>
+
+				</tr>
+			</tbody>
+		</table>
+
+		<br>
+		<br>
+		<br>
+		<br> <a th:href="@{/kootam/{id}(id=${session.luId})}"> Back
+			to Home </a>
+	</div>
+</body>
+</html>

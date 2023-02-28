@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ItemCategory Management </title>
+</head>
+<body>
+	<div>
+		<h1>ItemCategory Management</h1>
+		<h2>Update ItemCategory Details</h2>
+		<form action="#" th:action="@{/itemCategory/saveItemCategory}" th:object="${itemCategory}" method="POST">
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{itcatId}" />
+			<table>
+			<tr><td>Item CategoryName</td><td><input type="text" th:field="*{itcatName}" placeholder="ItemCategory Name">
+			</td></tr>
+			<tr><td></td><td><button type="submit"> Update ItemCategory</button></td></tr>
+			</table>
+			
+			
+		</form>
+		
+		
+		
+		<br><br><br><br>
+		<a th:href = "@{/itemCategory}"> Back to ItemCategory List</a>
+		
+		
+	</div>
+</body>
+</html>

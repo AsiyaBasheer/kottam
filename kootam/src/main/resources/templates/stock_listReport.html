@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>::Stock ::</title>
+</head>
+<body>
+
+<div>
+	<h1>stock  List</h1>
+	
+		 <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>StockInvoiceNo</th>
+                    <th> Vendor ID</th>
+                     <th> Stock Items </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="stock : ${listStocks}">
+                
+                    <td th:text="${stock.stId}"></td>
+					<td th:text="${stock.vendor.vId}"></td>
+					 <td> 
+                    	<a th:href="@{/stockItem/{id}(id=${stock.stId})}">StockItems</a></td>
+                   
+                </tr>
+            </tbody>
+        </table>
+		
+		<br><br><br><br>
+		<a th:href = "@{/kootam/{id}(id=${session.luId})}"> Back to Home </a>
+	</div>
+</body>
+</html>

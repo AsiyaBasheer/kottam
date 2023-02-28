@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>::ItemUOM Entry::</title>
+</head>
+<body>
+
+	<div>
+	<h1>Item UOM List(EACH/GRAM etc)</h1>
+	<a th:href="@{/itemUOM/showNewItemUOMForm}">Add item UOM</a>
+	<br><br><br><br>
+		 <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>ItemUOM</th>
+                    <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="itemUOM : ${listitemUOM}">
+                
+                    <td th:text="${itemUOM.itUOMName}"></td>
+                    <td> 
+                    	<a th:href="@{/itemUOM/showFormForUpdate/{id}(id=${itemUOM.itUOMId})}">Update</a>
+                         <span th:if="${session.luUserType == 'Admin'}">
+                        <a th:href="@{/itemUOM/deleteItemUOM/{id}(id=${itemUOM.itUOMId})}">Delete</a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+		
+		<br><br><br><br>
+		<a th:href = "@{/kootam/{id}(id=${session.luId})}"> Back to Home </a>
+	</div>
+</body>
+</html>

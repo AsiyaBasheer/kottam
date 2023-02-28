@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>::StockItem Entry::</title>
+</head>
+<body>
+
+	<div>
+		<h1>StockItem List</h1>
+		<a th:href="@{/stockItem/showNewStockItemForm/{id}(id=${stockId})}">Add StockItem </a>
+		<br><br><br><br>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>StockItemNo</th>
+					<th>StockItemID</th>
+					<th>StockItemName</th>
+					<th>StockItemUOM</th>
+					<th>StockItemInvoiceNo</th>
+					<th>Stock Date</th>
+					<th>StockItemQty</th>
+					<th>VendorItemPrice</th>
+					<th>VendorID</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="stockItem : ${listStockItems}">
+					<td th:text="${stockItem.stiId}"></td>
+					<td th:text="${stockItem.item.itId}"></td>
+					
+					<td th:text="${stockItem.item.itName}"></td>
+					<td th:text="${stockItem.item.itUOM.itUOMName}"></td>
+					<td th:text="${stockItem.stock.stId}"></td>
+					<td th:text="${stockItem.stock.stDate}"></td>
+					<td th:text="${stockItem.stiQty}"></td>
+					<td th:text="${stockItem.stiVPrice}"></td>
+					<td th:text="${stockItem.stock.vendor.vId}"></td>
+
+
+					<td><a
+						th:href="@{/stockItem/showFormForUpdate/{id}(id=${stockItem.stiId})}">Update</a>
+						 <span th:if="${session.luUserType == 'Admin'}">
+						<a
+						th:href="@{/stockItem/deleteStockItem/{id}(id=${stockItem.stiId})}">Delete</a>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+<br><br><br><br>
+		<a th:href = "@{/stock}"> Back to stock List</a>
+		
+	</div>
+</body>
+</html>

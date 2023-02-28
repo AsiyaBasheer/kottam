@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>LoginUser Management</title>
+</head>
+<body>
+<div>
+		<h1>LoginUser Management</h1>
+		<h2>Update LoginUser</h2>
+		<form action="#" th:action="@{/loginUser/saveLoginUser}" th:object="${loginUser}" method="POST">
+			
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{luId}" />
+			
+			<table>
+				<tr><td>UserName</td><td><input type="text" th:field="*{luName}" placeholder="loginUser Name">
+			</td></tr>
+				<tr><td>Phone</td><td><input type="text" th:field="*{luPhone}" placeholder="loginUser Phone">
+			</td></tr>
+				<tr><td>Password</td><td><input type="text" th:field="*{luPassword}" placeholder="loginUser Password">
+			</td></tr>
+				<tr><td>UserType</td><td><select th:field="*{luUserType}">
+			<option  th:value="Admin" th:text="Admin"/>
+			<option  th:value="BackOffice" th:text="BackOffice"/>
+			
+			</select></td></tr>
+				<tr><td></td><td><button type="submit"> Update LoginUser</button></td></tr>
+			</table>
+		
+		
+		</form>
+		
+		
+		<br><br><br><br>
+		
+		<a th:href = "@{/loginUser}"> Back to LoginUser List</a>
+	</div>
+
+</body>
+</html>

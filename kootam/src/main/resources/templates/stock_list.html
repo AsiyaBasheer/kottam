@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>::Stock Entry::</title>
+</head>
+<body>
+
+<div>
+	<h1>Stock  List</h1>
+	<a th:href="@{/stock/showNewStockForm}">Add stock </a>
+	<br><br><br><br>
+		 <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>StockInvoiceNo</th>
+                    <th> Vendor ID</th>
+                     <th> Stock Items </th>
+                    <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="stock : ${listStocks}">
+                
+                    <td th:text="${stock.stId}"></td>
+					<td th:text="${stock.vendor.vId}"></td>
+					 <td> 
+                    	<a th:href="@{/stockItem/{id}(id=${stock.stId})}">StockItems</a>
+                    	</td>
+                    <td> 
+                    	<a th:href="@{/stock/showFormForUpdate/{id}(id=${stock.stId})}">Update</a>
+                    	 <span th:if="${session.luUserType == 'Admin'}">
+                        <a th:href="@{/stock/deletestock/{id}(id=${stock.stId})}">Delete</a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+		<br><br><br><br>
+		<a th:href = "@{/kootam/{id}(id=${session.luId})}"> Back to Home </a>
+	</div>
+</body>
+</html>

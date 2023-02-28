@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Stock Management</title>
+</head>
+<body>
+
+<div>
+		<h1>Stock Management</h1>
+
+		<h2>Add Stock Details</h2>
+
+		<form action="#" th:action="@{/stock/saveStock}" th:object="${stock}"
+			method="POST">
+			<!-- stock Date:<input type="datetime-local" th:field="*{stDate}" placeholder="stock Date">
+	 -->
+			
+			<table>
+				<tr><td>StockDate</td><td><input type="text" th:field="*{stDate}"
+				placeholder="stock Date in yyyy-mm-dd"> <br></td></tr>
+				<tr><td>Vendor</td><td> <select th:field="*{vendor}">
+				<option th:each="vendor: ${vendors}" th:value="${vendor.vId}"
+					th:text="${vendor.vName}+':'+${vendor.vPhone}" />
+			</select></td></tr>
+				<tr><td>Stock Amount Settled</td><td><input type="checkbox"
+				th:field="*{stAmountSettled}" placeholder="stock Amount Settled"></td></tr>
+				<tr><td></td><td><button type="submit">Save stock</button>
+			</td></tr>
+			</table>
+		</form>
+
+
+		<br>
+		<br>
+		<br>
+		<br> <a th:href="@{/stock}"> Back to stock List</a>
+	</div>
+</body>
+</html>
